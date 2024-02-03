@@ -1,17 +1,8 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-const express = require('express');
 
 const mongoURL = process.env.MONGO_URL;
-console.log(mongoURL);
 mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
-
-const app = express();
-app.get('/secret', (req, res) => {
-  res.json({
-    pass: mongoURL,
-  });
-});
 
 let Person;
 
