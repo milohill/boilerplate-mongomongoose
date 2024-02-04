@@ -22,12 +22,11 @@ const createAndSavePerson = (done) => {
     age: 99,
     favoriteFoods: ['taco', 'noodle'],
   });
-  newPerson.save().then(
-    (doc) => {
-      done(null, doc);
-    },
-  ).catch((err) => {
-    done(err);
+  newPerson.save((err, data) => {
+    if (err) {
+      done(err);
+    }
+    done(null, data);
   });
 };
 
