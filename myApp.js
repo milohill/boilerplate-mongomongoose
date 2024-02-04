@@ -16,18 +16,18 @@ const Person = mongoose.model('Person', personSchema);
 
 // let Person;
 
-const async createAndSavePerson = (done) => {
+const createAndSavePerson = async (done) => {
   const newPerson = new Person({
     name: 'David',
     age: 99,
     favoriteFoods: ['taco', 'noodle'],
   });
-  
+
   try {
     const doc = await newPerson.save();
     done(null, doc);
   } catch (error) {
-    done(error)
+    done(error);
   }
 };
 
