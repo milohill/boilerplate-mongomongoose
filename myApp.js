@@ -22,6 +22,7 @@ const createAndSavePerson = (done) => {
     age: 99,
     favoriteFoods: ['taco', 'noodle'],
   });
+  newPerson.save();
   done(null, newPerson);
 };
 
